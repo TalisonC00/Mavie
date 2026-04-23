@@ -3,56 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1º Aninho da Mavie - Bolofofos</title>
+    <title>1º Aninho da Mavie</title>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
-        /* ESTILO AQUARELA E FUNDO */
         body {
             background: linear-gradient(135deg, #fffafa 0%, #fef0ff 50%, #fff9e6 100%);
             font-family: 'Quicksand', sans-serif;
             display: flex;
-            justify-content: center;
+            flex-direction: column; /* Organiza em coluna */
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            overflow-x: hidden; /* Evita barra de rolagem lateral por causa dos bonecos */
-            color: #5d5d5d;
+            padding: 20px;
         }
 
-        /* PERSONAGENS ESPALHADOS (ESPREITANDO) */
-        .pet {
-            position: fixed;
-            z-index: -1;
-            opacity: 0.9;
-            pointer-events: none; /* Não atrapalha o clique nos botões */
-            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));
+        /* IMAGEM DOS PERSONAGENS QUE VOCÊ ENVIOU */
+        .banner-bolofofos {
+            width: 100%;
+            max-width: 300px; /* Não deixa ficar gigante */
+            margin-bottom: -20px; /* Faz a imagem "entrar" um pouco no card */
+            z-index: 1;
+            filter: drop-shadow(0 10px 10px rgba(0,0,0,0.1));
         }
-        .pet-1 { top: 5%; left: -20px; width: 100px; transform: rotate(-15deg); }
-        .pet-2 { bottom: 5%; right: -20px; width: 120px; transform: rotate(15deg); }
-        .pet-3 { top: 15%; right: -30px; width: 80px; transform: rotate(10deg); }
 
-        /* CARTÃO DO CONVITE */
         .card {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(5px);
-            padding: 40px 25px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 50px 25px 40px;
             border-radius: 40px;
             box-shadow: 0 15px 35px rgba(255, 182, 193, 0.2);
-            width: 85%;
+            width: 90%;
             max-width: 380px;
             text-align: center;
             border: 4px solid #ffffff;
-            position: relative;
         }
 
-        h1 { color: #ff85a2; font-size: 2.2rem; margin-bottom: 5px; }
-        .subtitulo { color: #b39cd0; font-weight: bold; margin-bottom: 25px; font-size: 1.1rem; }
+        h1 { color: #ff85a2; font-size: 2.2rem; margin: 10px 0 5px; }
+        .subtitulo { color: #b39cd0; font-weight: bold; margin-bottom: 25px; }
 
-        /* MENSAGEM DE STATUS */
-        #status { color: #ffb6c1; font-style: italic; margin-top: 20px; }
-
-        /* SEÇÕES DE INFORMAÇÃO */
         .secao {
             display: none;
             margin-top: 20px;
@@ -68,90 +56,58 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* BOTÃO DO MAPA */
         .btn-mapa {
             display: inline-block;
             margin-top: 15px;
             padding: 12px 25px;
             background: #9370db;
-            color: white;
+            color: white !important;
             text-decoration: none;
             border-radius: 50px;
-            font-size: 0.9rem;
             font-weight: bold;
-            box-shadow: 0 4px 10px rgba(147, 112, 219, 0.3);
         }
 
-        .lista-presentes {
-            text-align: left;
-            display: inline-block;
-            list-style: none;
-            padding: 0;
-            margin: 10px 0;
-        }
-
-        .lista-presentes li { 
-            margin: 12px 0; 
-            font-size: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+        ul { text-align: left; display: inline-block; padding: 0; list-style: none; }
+        li { margin: 10px 0; }
     </style>
 </head>
 <body>
 
-    <img src="https://i.pinimg.com/originals/93/9b/6c/939b6c0714777a8349258276063b4685.png" class="pet pet-1" alt="Rick">
-    <img src="https://i.pinimg.com/originals/30/8a/7e/308a7e39958744031d2001a186a87752.png" class="pet pet-2" alt="Bunny">
-    <img src="https://i.pinimg.com/originals/8a/7e/30/8a7e3039958744031d2001a186a87752.png" class="pet pet-3" alt="Sophie">
+    <img src="NOME_DA_SUA_IMAGEM.jpg" class="banner-bolofofos" alt="Bolofofos Festa">
 
     <div class="card">
-        <h1>Mavie 🎂</h1>
+        <h1>Mavie 🌸</h1>
         <div class="subtitulo">Meu 1º Aninho • 05/07/2026</div>
         
-        <div id="status">Carregando informações...</div>
+        <p id="status" style="color: #ffb6c1;">Aguardando seu clique... ✨</p>
 
         <div id="endereco" class="secao">
-            <h3 style="color: #9370db;">📍 Onde será a festa</h3>
-            <p><strong>Salão de Festas Alegria Doce</strong><br>
-            Rua das Cores, nº 123 - Bairro Feliz</p>
-            <a href="https://maps.app.goo.gl/exemplo" target="_blank" class="btn-mapa">Abrir no Google Maps 🚗</a>
+            <h3 style="color: #9370db;">📍 Local da Festa</h3>
+            <p>Salão de Festas Alegria Doce<br>Rua das Cores, nº 123</p>
+            <a href="https://maps.google.com" target="_blank" class="btn-mapa">Abrir GPS</a>
         </div>
 
         <div id="presentes" class="secao">
-            <h3 style="color: #ffb6c1;">🎁 Sugestões de Presente</h3>
-            <ul class="lista-presentes">
+            <h3 style="color: #ffb6c1;">🎁 Sugestões</h3>
+            <ul>
                 <li>🧸 Brinquedos infantis</li>
                 <li>👗 Roupa tamanho 2</li>
-                <li>🩰 Sapato/sandália 22/23</li>
+                <li>🩰 Sapato 22/23</li>
             </ul>
         </div>
     </div>
 
     <script>
         window.onload = function() {
-            // O código lê o final do link (ex: #endereco)
             const hash = window.location.hash;
-            const statusMsg = document.getElementById('status');
-
             if (hash === "#confirmar") {
-                statusMsg.innerText = "Confirmando presença... 🚀";
-                const tel = "5511958955399";
-                const texto = encodeURIComponent("Passando para confirmar minha presença na festa da Mavie! 🩷💜💛");
-                
-                // Abre o WhatsApp e depois de 2 segundos volta/limpa o status
-                window.location.href = `https://wa.me/${tel}?text=${texto}`;
-            } 
-            else if (hash === "#endereco") {
-                statusMsg.style.display = "none";
+                window.location.href = "https://wa.me/5511958955399?text=" + encodeURIComponent("Passando para confirmar minha presença na festa da Mavie! 🩷💜💛");
+            } else if (hash === "#endereco") {
+                document.getElementById('status').style.display = "none";
                 document.getElementById('endereco').style.display = 'block';
-            } 
-            else if (hash === "#presentes") {
-                statusMsg.style.display = "none";
+            } else if (hash === "#presentes") {
+                document.getElementById('status').style.display = "none";
                 document.getElementById('presentes').style.display = 'block';
-            }
-            else {
-                statusMsg.innerText = "Estamos te esperando! ✨";
             }
         };
     </script>
