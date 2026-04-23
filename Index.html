@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aniversário da Mavie</title>
+    <style>
+        body { font-family: 'Comic Sans MS', cursive; background: #fff5f8; text-align: center; padding: 40px; }
+        .card { background: white; padding: 30px; border-radius: 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); max-width: 400px; margin: auto; }
+        .secao { display: none; margin-top: 20px; padding: 20px; border-radius: 15px; background: #fdfcfb; border: 2px solid #ffb6c1; animation: surgir 0.5s; }
+        @keyframes surgir { from { opacity: 0; } to { opacity: 1; } }
+        h1 { color: #ff69b4; }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>Mavie 🎂</h1>
+        <p>Aguarde um instante...</p>
+
+        <div id="endereco" class="secao">
+            <h3>📍 Onde será:</h3>
+            <p>Salão de Festas Bolofofos<br>Rua das Cores, 123</p>
+        </div>
+
+        <div id="presentes" class="secao">
+            <h3>🎁 Sugestões:</h3>
+            <p>Roupas: Tam 3 | Calçados: 22</p>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            // O "Vigia" olha para o final do link (#)
+            const acao = window.location.hash;
+
+            if (acao === "#confirmar") {
+                const fone = "5511958955399";
+                const msg = encodeURIComponent("Passando para confirmar minha presença na festa da Mavie! 🩷💜💛");
+                window.location.href = "https://wa.me/" + fone + "?text=" + msg;
+            } 
+            else if (acao === "#endereco") {
+                document.getElementById('endereco').style.display = 'block';
+                document.querySelector('p').innerText = "Aqui estão os detalhes do local:";
+            } 
+            else if (acao === "#presentes") {
+                document.getElementById('presentes').style.display = 'block';
+                document.querySelector('p').innerText = "Aqui estão as sugestões:";
+            }
+        };
+    </script>
+</body>
+</html>
