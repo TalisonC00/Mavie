@@ -20,66 +20,58 @@
         }
 
         .card {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 40px 25px;
+            background: #ffffff;
+            padding: 0 0 40px 0; /* Remove preenchimento no topo para a foto encostar */
             border-radius: 40px;
-            box-shadow: 0 15px 35px rgba(255, 182, 193, 0.15);
+            box-shadow: 0 15px 35px rgba(255, 182, 193, 0.2);
             width: 90%;
             max-width: 380px;
             text-align: center;
-            border: 2px solid #ffffff;
-            position: relative;
-            overflow: hidden; /* Garante que a foto ao fundo não saia do cartão */
+            border: 4px solid #ffffff;
+            overflow: hidden; /* Corta a foto nas bordas arredondadas */
         }
 
-        /* Foto dos Bolofofos centralizada ao fundo */
-        .foto-fundo {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 90%; /* Ajuste o tamanho para não cobrir tudo */
-            opacity: 0.15; /* Deixa a foto suave ao fundo para não atrapalhar o texto */
-            z-index: 0;
-            pointer-events: none;
+        /* Foto no Topo do Cartão */
+        .foto-topo {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin-bottom: 20px;
         }
 
-        /* Conteúdo do cartão que ficará por cima da foto */
         .conteudo {
-            position: relative;
-            z-index: 1;
+            padding: 0 25px;
         }
 
         h1 { 
             color: #ff6dae; 
             font-size: 2.8rem; 
             margin: 0; 
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
         }
 
         .subtitulo { 
             color: #9a84b4; 
             font-weight: bold; 
-            font-size: 1.2rem;
-            margin-bottom: 30px;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
             display: block;
         }
 
         #status { 
-            font-size: 0.95rem; 
+            font-size: 0.9rem; 
             color: #ffb6c1; 
             margin-bottom: 10px;
+            font-weight: 500;
         }
 
         .secao {
             display: none;
-            margin-top: 20px;
-            padding: 25px;
-            border-radius: 30px;
-            background: rgba(255, 255, 255, 0.9);
+            margin-top: 15px;
+            padding: 20px;
+            border-radius: 25px;
+            background: #fff9fb;
             border: 2px solid #fdf0f0;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
-            animation: fadeIn 0.5s ease-in;
+            animation: fadeIn 0.4s ease-in;
         }
 
         @keyframes fadeIn {
@@ -90,39 +82,39 @@
         .btn-mapa {
             display: inline-block;
             margin-top: 15px;
-            padding: 14px 28px;
+            padding: 12px 25px;
             background: #9370db;
             color: white !important;
             text-decoration: none;
             border-radius: 50px;
             font-weight: bold;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
-        ul { text-align: left; display: inline-block; padding: 0; list-style: none; }
-        li { margin: 12px 0; font-size: 1.05rem; }
+        ul { text-align: left; display: inline-block; padding: 0; list-style: none; margin: 0; }
+        li { margin: 10px 0; font-size: 1rem; }
     </style>
 </head>
 <body>
 
     <div class="card">
-        <img src="festa.jpg" class="foto-fundo" alt="">
+        <img src="festa.jpg" class="foto-topo" alt="Bolofofos">
 
         <div class="conteudo">
-            <h1>Mavie 🎂</h1>
-            <span class="subtitulo">Meu 1º Aninho • 05/07/2026</span>
+            <h1>Mavie 🎂 </h1>
+            <span class="subtitulo"> • Meu 1º Aninho • </span>
             
-            <p id="status">Detalhes da festa liberados! ✨</p>
+            <p id="status">✨ Detalhes liberados abaixo ✨</p>
 
             <div id="endereco" class="secao">
-                <h3 style="color: #9370db; margin-top: 0;">📍 Onde será a festa?</h3>
-                <p><strong>Salão Alegria Doce</strong><br>
-                Rua das Cores, nº 123 - Bairro Feliz</p>
-                <a href="https://www.google.com/maps" target="_blank" class="btn-mapa">ABRIR NO GPS 🚗</a>
+                <h3 style="color: #9370db; margin: 0 0 10px 0;">📍Endereço</h3>
+                <p style="margin: 0;"><strong>Salão Alegria Doce</strong><br>
+                Rua das Cores, nº 123</p>
+                <a href="https://www.google.com/maps" target="_blank" class="btn-mapa">Abrir no GPS 🚗</a>
             </div>
 
             <div id="presentes" class="secao">
-                <h3 style="color: #ff85a2; margin-top: 0;">🎁 Sugestões de Presente</h3>
+                <h3 style="color: #ff85a2; margin: 0 0 10px 0;">🎁 Sugestões</h3>
                 <ul>
                     <li>🧸 Brinquedos infantis</li>
                     <li>👗 Roupas (Tamanho 2)</li>
@@ -138,7 +130,7 @@
             const status = document.getElementById('status');
             
             if (hash === "#confirmar") {
-                window.location.href = "https://wa.me/5511958955399?text=" + encodeURIComponent("Passando para confirmar minha presença na festa da Mavie! 🩷💜💛");
+                window.location.href = "https://wa.me/5511958955399?text=" + encodeURIComponent("Passando para confirmar minha presença na festa de 1 aninho da Mavie! 🩷💜💛");
             } else if (hash === "#endereco") {
                 status.style.display = "none";
                 document.getElementById('endereco').style.display = 'block';
