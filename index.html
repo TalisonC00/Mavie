@@ -98,7 +98,7 @@
 <body>
 
     <div class="card">
-        <img src="festa.jpg" class="foto-topo" alt="Bolofofos">
+        <img src="foto.jpg" class="foto-topo" alt="Bolofofos">
 
         <div class="conteudo">
             <h1>Mavie 🎂 </h1>
@@ -130,7 +130,8 @@
             const status = document.getElementById('status');
             
             if (hash === "#confirmar") {
-                window.location.href = "https://wa.me/5511958955399?text=" + encodeURIComponent("Passando para confirmar minha presença na festa de 1 aninho da Mavie! 🩷💜💛");
+               const texto = encodeURIComponent("Passando para confirmar minha presença na festa de 1 aninho da Mavie! 🩷💜💛");
+               window.location.href = "https://wa.me/5511958955399?text=" + texto;
             } else if (hash === "#endereco") {
                 status.style.display = "none";
                 document.getElementById('endereco').style.display = 'block';
